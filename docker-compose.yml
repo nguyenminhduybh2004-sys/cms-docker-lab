@@ -1,0 +1,10 @@
+services:
+  ghost:
+    build: .
+    restart: always
+    ports:
+      - "8083:2368"
+    environment:
+      # Sử dụng SQLite để đơn giản hóa việc triển khai lên Render Free
+      database__client: sqlite3
+      url: https://cms-docker-lab.onrender.com
