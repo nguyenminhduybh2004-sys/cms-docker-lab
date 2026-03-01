@@ -1,10 +1,9 @@
 services:
   ghost:
-    build: .
-    restart: always
+    image: ghost:5-alpine
     ports:
       - "8083:2368"
     environment:
-      # Sử dụng SQLite để đơn giản hóa việc triển khai lên Render Free
+      # Ép Ghost nhận diện đúng URL để không bị lỗi từ chối kết nối
+      url: http://13.210.91.137:8083
       database__client: sqlite3
-      url: https://cms-docker-lab.onrender.com
